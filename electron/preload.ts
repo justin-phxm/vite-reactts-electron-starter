@@ -153,9 +153,15 @@ declare global {
   interface Window {
     Main: typeof api;
     ipcRenderer: typeof ipcRenderer;
+    electronAPI: {
+      setMouseIgnore: (ignore: boolean) => void;
+    };
   }
 }
-
+contextBridge.exposeInMainWorld("electronAPI", {
+  setMouseIgnore: (ignore: boolean) =>
+    ipcRenderer.send("set-ignore-mouse-events", ignore),
+});
 const api = {
   /**
    * Here you can expose functions to the renderer process

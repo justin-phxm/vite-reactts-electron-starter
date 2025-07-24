@@ -1,3 +1,4 @@
+import path from "node:path";
 import react from "@vitejs/plugin-react";
 import { UserConfig, ConfigEnv } from "vite";
 import { rmSync } from "node:fs";
@@ -5,9 +6,8 @@ import { join } from "path";
 import electron from "vite-plugin-electron";
 import renderer from "vite-plugin-electron-renderer";
 import pkg from "./package.json";
-
 const root = join(__dirname);
-const srcRoot = join(__dirname, "src");
+const srcRoot = path.resolve(__dirname, "./src");
 rmSync("dist-electron", { recursive: true, force: true });
 
 const buildElectron = (isDev: boolean) => ({
@@ -45,7 +45,6 @@ function plugins(isDev: boolean) {
         },
       },
     ]),
-
     renderer(),
   ];
 }
@@ -59,7 +58,7 @@ export default ({ command }: ConfigEnv): UserConfig => {
       plugins: plugins(true),
       resolve: {
         alias: {
-          "/@": srcRoot,
+          "@": srcRoot,
         },
       },
       build: {

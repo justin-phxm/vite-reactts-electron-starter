@@ -11,24 +11,24 @@ import {
 } from "electron";
 import isDev from "electron-is-dev";
 
-const height = 600;
-const width = 800;
-
 function createWindow() {
   // Create the browser window.
   const window = new BrowserWindow({
-    width,
-    height,
+    // width: 800,
+    // height: 600,
+    // fullscreenable: true,
+    fullscreen: true,
     //  change to false to use AppBar
     frame: false,
-    show: true,
-    resizable: true,
-    fullscreenable: true,
+    transparent: true,
+    focusable: false,
+    alwaysOnTop: true,
+    acceptFirstMouse: true,
     webPreferences: {
       preload: join(__dirname, "preload.js"),
+      backgroundThrottling: false,
     },
   });
-
   const port = process.env.PORT || 3000;
   const url = isDev
     ? `http://localhost:${port}`
@@ -37,11 +37,11 @@ function createWindow() {
   // and load the index.html of the app.
   if (isDev) {
     window?.loadURL(url);
+    // Open the DevTools.
+    // window.webContents.openDevTools();
   } else {
     window?.loadFile(url);
   }
-  // Open the DevTools.
-  window.webContents.openDevTools();
 
   // For AppBar
   ipcMain.on("minimize", () => {
@@ -52,6 +52,10 @@ function createWindow() {
   ipcMain.on("maximize", () => {
     // eslint-disable-next-line no-unused-expressions
     window.isMaximized() ? window.restore() : window.maximize();
+  });
+  ipcMain.on("set-ignore-mouse-events", (event, ignore) => {
+    const win = BrowserWindow.fromWebContents(event.sender);
+    win?.setIgnoreMouseEvents(ignore, { forward: true });
   });
 
   ipcMain.on("close", () => {
