@@ -4,7 +4,6 @@ import CardCounter from "./components/CardCounter";
 
 function App() {
   useEffect(() => {
-    window.Main.removeLoading();
     const interactive = document.getElementById("interactive-zone");
     interactive?.addEventListener("mouseenter", () => {
       window.electronAPI.setMouseIgnore(false); // enable clicks
