@@ -1,10 +1,10 @@
 {
   "name": "vite-reactts-electron-starter",
-  "version": "0.6.0",
+  "version": "0.1.0",
   "license": "MIT",
   "main": "dist-electron/index.js",
   "author": {
-    "name": "Maximilian Stümpfl"
+    "name": "Justin Pham"
   },
   "description": "Starter using Vite 2+ React +Typescript + Electron for fast prototyping.",
   "keywords": [
@@ -35,36 +35,39 @@
   },
   "dependencies": {
     "@material-tailwind/react": "^2.1.9",
-    "@vitejs/plugin-react": "^1.2.0",
+    "@tailwindcss/postcss": "^4.1.11",
+    "@vitejs/plugin-react": "^4.7.0",
     "electron-is-dev": "^2.0.0",
+    "eslint-config-airbnb-typescript": "^18.0.0",
+    "eslint-plugin-tailwindcss": "^3.18.2",
     "i18next": "^23.11.5",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "react-i18next": "^14.1.2",
-    "vite": "^2.8.6",
-    "vite-plugin-electron": "^0.28.7",
+    "vite": "^7.0.5",
+    "vite-plugin-electron": "^0.29.0",
     "vite-plugin-electron-renderer": "^0.14.5"
   },
   "devDependencies": {
-    "@types/node": "^17.0.22",
-    "@types/react": "^17.0.41",
-    "@types/react-dom": "^17.0.14",
-    "@typescript-eslint/eslint-plugin": "5.16.0",
-    "@typescript-eslint/parser": "5.16.0",
+    "@types/node": "^24.0.15",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@typescript-eslint/eslint-plugin": "8.37.0",
+    "@typescript-eslint/parser": "8.37.0",
     "autoprefixer": "^10.4.4",
-    "electron": "^30.0.7",
-    "electron-builder": "^24.13.3",
-    "eslint": "8.11.0",
+    "electron": "^37.2.3",
+    "electron-builder": "^26.0.12",
+    "eslint": "9.31.0",
     "eslint-config-airbnb": "19.0.4",
-    "eslint-config-prettier": "8.5.0",
+    "eslint-config-prettier": "10.1.8",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-prettier": "5.5.3",
     "eslint-plugin-react": "^7.29.4",
     "postcss": "^8.4.12",
-    "prettier": "2.6.0",
-    "tailwindcss": "^3.0.23",
-    "typescript": "^4.6.2"
+    "prettier": "3.6.2",
+    "tailwindcss": "^4.1.11",
+    "typescript": "^5.8.3"
   },
   "build": {
     "asar": true,
@@ -75,5 +78,6 @@
     "directories": {
       "buildResources": "resources"
     }
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

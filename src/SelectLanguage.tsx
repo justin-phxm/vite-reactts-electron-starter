@@ -1,16 +1,16 @@
-import { Select, Option } from '@material-tailwind/react';
-import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { Select, Option } from "@material-tailwind/react";
+import React from "react";
+import { useTranslation } from "react-i18next";
 
-import './style/select_language.css';
+import "./style/select_language.css";
 
 function SelectLanguage() {
-  const [language, setLanguage] = React.useState('en');
+  const [language, setLanguage] = React.useState("en");
 
   const { i18n, t } = useTranslation();
 
   const languageHandler = (lang: string | undefined) => {
-    if (typeof lang === 'string') {
+    if (typeof lang === "string") {
       setLanguage(lang);
       i18n.changeLanguage(lang);
     }
@@ -18,21 +18,21 @@ function SelectLanguage() {
 
   const languages = [
     {
-      value: 'English',
-      key: 'en',
-      iconPath: new URL(`./assets/locales/en.svg`, import.meta.url).href
+      value: "English",
+      key: "en",
+      iconPath: new URL(`./assets/locales/en.svg`, import.meta.url).href,
     },
     {
-      value: 'Español',
-      key: 'es',
-      iconPath: new URL(`./assets/locales/es.svg`, import.meta.url).href
+      value: "Español",
+      key: "es",
+      iconPath: new URL(`./assets/locales/es.svg`, import.meta.url).href,
     },
   ];
 
   return (
     <div className="div-select-language">
       <Select
-        label={t('common.selectLanguage')}
+        label={t("common.selectLanguage")}
         variant="standard"
         value={language}
         onChange={languageHandler}
