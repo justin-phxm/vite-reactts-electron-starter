@@ -50,7 +50,6 @@ function plugins(isDev: boolean) {
 }
 const config = defineConfig({
   root: srcRoot,
-  base: "/",
   resolve: {
     alias: {
       "@": srcRoot,
@@ -73,12 +72,14 @@ export default ({ command }: ConfigEnv): UserConfig => {
   if (command === "serve") {
     return {
       ...config,
+      base: "/",
       plugins: plugins(true),
     };
   }
   // PROD
   return {
     ...config,
+    base: "./",
     plugins: plugins(false),
   };
 };

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Button } from "./ui/button";
 
 const WINDOW_WIDTH = 380; /* w-80 */
 const WINDOW_HEIGHT = 800; /* h-96 */
@@ -80,12 +81,21 @@ export default function CardCounter() {
       }}>
       <div className="flex w-full gap-2 text-sm">
         <div className="  bg-white/40 w-full px-4 py-2 rounded items-center flex-col justify-center flex text-center">
-          <button onClick={moveUp}>⬆️</button>
+          <Button onClick={moveUp} variant={"outline"}>
+            ⬆️
+          </Button>
           <div className="flex">
-            <button onClick={moveLeft}>⬅️</button>
-            <button onClick={moveRight}>➡️</button>
+            <Button onClick={moveLeft} variant={"outline"}>
+              ⬅️
+            </Button>
+            <Button onClick={moveRight} variant={"outline"}>
+              ➡️
+            </Button>
           </div>
-          <button onClick={moveDown}> ⬇️</button>
+          <Button onClick={moveDown} variant={"outline"}>
+            {" "}
+            ⬇️
+          </Button>
         </div>
 
         <div className=" bg-white/40 w-full flex flex-col justify-center items-center px-4 py-2 rounded text-center">
@@ -102,26 +112,29 @@ export default function CardCounter() {
 
         <div className="grid grid-cols-3 gap-4 mb-6 px-4">
           {buttons.map((value) => (
-            <button
+            <Button
+              variant={"outline"}
               key={value}
               onClick={() => handleClick(value)}
               className="bg-[#C1CCCA] font-bold text-lg py-2 px-4 rounded">
               {formattedLabel(value)}
-            </button>
+            </Button>
           ))}
         </div>
 
         <div className="space-y-4 px-4">
-          <button
+          <Button
+            variant={"outline"}
             onClick={handleReset}
             className="w-full bg-[#D3CBC7] font-bold py-2 rounded">
             Reset
-          </button>
-          <button
+          </Button>
+          <Button
+            variant={"outline"}
             onClick={handleUndo}
             className="w-full bg-[#E76219] font-bold py-2 rounded">
             Undo
-          </button>
+          </Button>
         </div>
       </div>
       <div
