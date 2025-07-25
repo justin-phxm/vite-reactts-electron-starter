@@ -12,16 +12,13 @@ import {
 import isDev from "electron-is-dev";
 
 function createWindow() {
-  // Create the browser window.
   const window = new BrowserWindow({
-    // width: 800,
-    // height: 600,
-    // fullscreenable: true,
-    // fullscreen: true,
+    fullscreenable: true,
+    fullscreen: true,
     //  change to false to use AppBar
     frame: false,
     transparent: true,
-    // focusable: false,
+    focusable: false,
     alwaysOnTop: true,
     acceptFirstMouse: true,
     webPreferences: {
@@ -38,10 +35,10 @@ function createWindow() {
   if (isDev) {
     window?.loadURL(url);
     // Open the DevTools.
+    // window.webContents.openDevTools();
   } else {
     window?.loadFile(url);
   }
-  window.webContents.openDevTools();
 
   // For AppBar
   ipcMain.on("minimize", () => {
